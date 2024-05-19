@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('./img.jpeg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-color: #2A363B;
+}
+.header {
+    display: flex;
+    margin-top: -10px;
+    height: 100px;
+    background-color:  #E84A5F;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px; /* Added padding */
+    font-family: Arial, sans-serif; /* Changed font family */
+    font-size: 20px; /* Adjusted font size */
+    color: white; /* Changed text color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow */
+}
+.lrsection
+{
+    display: flex;
+
+}
+.lsection{
+    height: 400px;
+    width:600px;
+    padding:20px;
+    color:  #A8E6CE;
+}
+.rsection{
+    margin-top: 20px;
+}
+.rsection form {
+    margin-left: 40px;
+    padding: 20px;
+    margin-top:5px;
+    border: 2px dashed wheat;
+    border-radius: 20px;
+    padding-top: 50px;
+    height: 390px;
+    width:600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* To center items horizontally */
+}
+.choose {
+    position: relative;
+    display: inline-block;
+}
+
+.choose button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.choose button:hover {
+    background-color: #45a049;
+}
+
+/* Hide the default file input */
+.choose input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+/* Style the file name display */
+.choose .file-name {
+    margin-left: 5px;
+}
+
+
+
+.colorize-btn {
+    margin-top: 40px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.colorize-btn:hover {
+    background-color: #45a049;
+}
+
+#progress {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.output-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.output-btn:hover {
+    background-color: #45a049;
+}
+a{
+    text-decoration: none;
+}
+/* Style for the butterfly image */
+.butterfly {
+    /* Add rounded corners */
+    border-radius: 2%;
+    
+    /* Add shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+.file-name{
+    color: white;
+}
+.outdiv{
+    display: flex;
+    padding: 50px;
+    color:white;
+}
+.routdiv,.loutdiv{
+    flex: 1;
+}
+.routdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loutdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.arrow {
+    display: flex;
+    justify-content: center; /* horizontally centers the arrow */
+    align-items: center; /* vertically centers the arrow */
+    margin-top: 80px; /* adjust this value as needed */
+}
+
+.arrow img {
+    width: 200px; /* Adjust this value to your desired width */
+    height: auto; /* This maintains the aspect ratio */
+}
+.video {
+    width: 100%; /* Ensures the video div fills the entire width of its container */
+    display: flex;
+    justify-content: center;
+}
+.video a{
+    margin-left: 20px;
+}
+#colorizeForm h3{
+    color: red;
+}
+#progress{    
+    margin-top: 30px;
+}

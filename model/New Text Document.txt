@@ -1,0 +1,4 @@
+import numpy as np
+filename = 'pts_in_hull.npy'
+data = np.load(filename)
+print(data)

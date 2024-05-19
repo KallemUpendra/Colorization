@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/styles.css">
+    <title>Colorization</title>
+</head>
+<body>
+    <div class="header">
+    <h1>Colorization</h1>
+    </div>
+    <div class="lrsection">
+    <div class="lsection">
+        
+        <p>Transform your black and white photos with our colorization tool.</p>
+        <img src="../static/butterfly.jpg" class="butterfly">
+    </div>
+    <div class="rsection">
+        
+    <form id="colorizeForm" action="/colorize" method="post" enctype="multipart/form-data">
+        <h3>Uplaod Image / Video</h3>
+        <div class="choose">
+            <button id="fileButton">Choose File</button>
+            <input type="file" id="fileUpload" name="file" accept="image/*,video/*" style="display: none;" required>
+            <span class="file-name">No file chosen</span>
+        </div>         
+        <button type="submit" class="colorize-btn">Colorize</button>
+        <div id="progress"></div>
+    </form>
+</div>
+</div>
+<div class="outdiv">
+    {% if colorized %}
+    {% if original_type == 'image' %}
+    <div class="loutdiv">
+    <h2>Original Image</h2>
+    <img src="{{ original }}" alt="Original Image" width="400">
+    </div>
+    {% endif %}    
+    {% if original_type == 'image' %}
+        <div class="arrow">
+            <img src="../static/arrow.png">
+        </div>
+    {% endif %}  
+    <div class="routdiv">
+    {% if colorized_type == 'image' %}
+    <h2>Colorized Output</h2>
+    <img src="{{ colorized }}" alt="Colorized Image" width="400">
+    </div>
+    {% endif %}
+</div>
+    {% if colorized_type == 'image' %}
+    <a href="{{ colorized }}" download="colorized_output"><button class="output-btn">Download Colorized Output</button></a>
+    {% endif %}
+    {% if colorized_type == 'video' %}
+    <div class="video">
+    <h2>Colorized Video</h2>
+    <a href="{{ colorized }}" download="colorized_output"><button class="output-btn">Download Colorized Output</button></a>
+</div>
+    {% endif %}
+
+    {% endif %}
+    
+
+    <script>
+        document.getElementById('fileButton').addEventListener('click', function() {
+    document.getElementById('fileUpload').click();
+});
+
+document.getElementById('fileUpload').addEventListener('change', function() {
+    const fileName = this.files[0].name;
+    document.querySelector('.file-name').textContent = fileName;
+});
+        // Function to update progress dynamically
+        function updateProgress(progress) {
+            document.getElementById("progress").innerText = `Progress: ${progress.toFixed(2)}%`;
+        }
+
+        // AJAX request to get progress updates
+        function checkProgress() {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', '/progress', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let progress = parseFloat(xhr.responseText);
+                    if (!isNaN(progress)) {
+                        updateProgress(progress);
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        // Check progress every second
+        setInterval(checkProgress, 1000);
+
+    </script>
+    
+        
+    
+</body>
+</html>
